@@ -31,6 +31,16 @@ The file structure should look something like:
 
 # Running the code
 
+## Non-private baselines
+
+To reproduce the results for the non-private baselines (using L-BFGS or SGD), run
+
+`python -m scripts.run_np_lbfgs --dataset=[dataset]`   or `python -m scripts.run_np_sgd --dataset=[dataset]`
+
+for datasets `adult`, `gisette`, `synthetic_L` and `synthetic_H`.
+
+## Objective Perturbation
+
 To reproduce the results for Approximate Minima Perturbation (i.e., "Algorithm 1" in the paper), run
 
 `python -m scripts.run_amp --dataset=[dataset] --epsilon=[epsilon]`
@@ -46,6 +56,8 @@ Default values for other parameters can also be tweaked, e.g.:
 * `learning_rate_grid`: the candidate pool of learning rate values,
 * `n_trials`: the number of trials over which to average the results.
 
+## DP-SGD
+
 To reproduce the results for "dishonest" DP-SGD (DP-SGD with non-private hyperparameter tuning), run
 
 `python -m scripts.run_dpsgd --dataset=[dataset] --epsilon=[epsilon]`
@@ -58,6 +70,9 @@ Tunable parameters for DP-SGD include:
 * `lr_grid`: the candidate pool of learning rate values,
 * `optim`: the type of optimizer (`Adam` or `SGD`),
 * `n_trials`: the number of trials over which to average the results.
+
+## Private Selection
+
 
 To reproduce the results for "honest" DP-SGD (DP-SGD with private hyperparameter tuning), run
 
